@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhavya Sharma | Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif
+    }
+
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('body background img.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* CURSOR */
+    .cursor {
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(255, 0, 255, 0.15), #000)
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      font-weight: 800;
+      animation: fadeUp 1s ease
+    }
+
+    .hero p {
+      color: #aaa;
+      margin: 10px 0 20px;
+      animation: fadeUp 1.5s ease
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: 1px solid #ff00ff;
+      border-radius: 30px;
+      margin: 10px;
+      color: #fff;
+      text-decoration: none;
+      transition: .3s
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 10px #ff00ff
+    }
+
+    section {
+      padding: 80px 10%
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px
+    }
+
+    /* SCROLL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(80px);
+      transition: all 1s ease
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* ABOUT */
+    .about {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center
+    }
+
+    .about img {
+      width: 300px;
+      border-radius: 20px
+    }
+
+    .about p {
+      color: #ccc
+    }
+
+    .img {
+      margin-left: 440px;
+    }
+
+    /* SKILLS (CINEMATIC GLOW BOXES) */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px
+    }
+
+    .skill {
+      padding: 25px;
+      text-align: center;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255, 0, 255, 0.1), rgba(0, 240, 255, 0.1));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: .4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255, 0, 255, 0.4), transparent);
+      opacity: 0;
+      transition: .4s;
+    }
+
+    .skill:hover::before {
+      opacity: 1
+    }
+
+    .skill:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 0 25px #ff00ff
+    }
+
+    /* PROJECTS */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px
+    }
+
+    .card {
+      background: #111;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: .4s;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 0 25px #00f0ff
+    }
+
+    .card img,
+    .card video {
+      width: 100%;
+      height: 650px;
+      object-fit: cover
+    }
+
+    .card-content {
+      padding: 15px
+    }
+
+    .card-content h3 {
+      margin-bottom: 5px
+    }
+
+    .card-content p {
+      color: #aaa;
+      font-size: 14px
+    }
+
+    /* CONTACT */
+    .contact-box {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    .contact-item {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ff00ff;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #fff;
+      transition: .3s
+    }
+
+    .contact-item:hover {
+      box-shadow: 0 0 20px #ff00ff;
+      transform: translateY(-8px)
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cursor"></div>
+
+  <section class="hero">
+    <h1>Bhavya Sharma</h1>
+    <p>Creative Visual Artist / Videographer & Photographer</p>
+    <div>
+      <a href="#portfolio" class="btn">View Work</a>
+      <a href="#contacts" class="btn">Contact Me</a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>About Me</h2>
+    <div class="about">
+      <img class="img" src="abt img.jpeg">
+      <p>I create cinematic visuals with strong storytelling, blending creativity with professional editing to deliver
+        impactful content.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">Videography</div>
+      <div class="skill">Photography</div>
+      <div class="skill">Video Editing</div>
+      <div class="skill">Photo Editing</div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="reveal">
+    <h2>Projects</h2>
+    <div class="portfolio">
+
+      <!-- PROJECT 1 -->
+      <div class="card">
+        <video autoplay muted loop>
+          <source src="cinematic video.mp4">
+        </video>
+        <div class="card-content">
+          <h3>Cinematic Film</h3>
+          <p>High-quality cinematic storytelling with dramatic visuals and color grading.</p>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="card">
+        <img src="Portrail photo.jpeg">
+        <div class="card-content">
+          <h3>Portrait Photography</h3>
+          <p>Creative portrait sessions with lighting and mood-based compositions.</p>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="card">
+        <video autoplay muted controls loop class="portrait-video">
+          <source src="editing showcase.mp4" type="video/mp4">
+        </video>
+        <div class="card-content">
+          <h3>Editing Showcase</h3>
+          <p>Professional portrait-style editing with vertical framing, smooth transitions, and cinematic storytelling.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contacts" class="reveal">
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <a href="mailto:Mr.bhavyasharma4081@gmail.com" class="contact-item">Email</a>
+      <a href="https://www.linkedin.com/in/bhavya-sharma-a707b437a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        target="_blank" class="contact-item">LinkedIn</a>
+      <a href="https://www.instagram.com/mr.bhavya_sharma_4081?igsh=c2RpN3Q3YXcxcWFs" target="_blank"
+        class="contact-item">Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 | Made by
+    <a href="mailto:Mr.bhavyasharma4081@gmail.com" style="color:#ff00ff;">Bhavya Sharma</a>
+  </footer>
+
+  <script>
+    const cursor = document.querySelector('.cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.top = e.clientY + 'px';
+      cursor.style.left = e.clientX + 'px';
+    });
+
+    function reveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', reveal);
+  </script>
+
+</body>
+
+</html>
